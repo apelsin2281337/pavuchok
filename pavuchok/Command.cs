@@ -7,6 +7,7 @@
         move    //used when selected cards are moved to another pile
     }
     internal class Command
+
     {
         public readonly CommandType type;
         public string[]? args;

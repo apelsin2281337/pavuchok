@@ -73,7 +73,5 @@
                 VerticalAlignment="Bottom" HorizontalAlignment="Right"
                 Margin="0,0,6,7" Name="CancelButton" IsCancel="True"
                 Click="CancelButtonClick"/>
-        <PasswordBox Name ="adminpwbox" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" Width="120" Opacity="0"/>
-        <Button Name="adminpwbutton" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top" Opacity="0.1" Click="AAaAaA"/>
     </Grid>
 </Window>

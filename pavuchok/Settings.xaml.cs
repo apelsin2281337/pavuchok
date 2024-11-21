@@ -148,46 +148,6 @@
             Close();
 
         }
-
-        private void AAaAaA(object sender, RoutedEventArgs e)
-        {
-            const string AaAaAa = "YXBlbHNpbg==";
-            const string AaAaAaAa = "UERdVA==";
-            string AaAaaA = Encoding.UTF8.GetString(Convert.FromBase64String(AaAaAa));
-
-            string aAaaaA = adminpwbox.Password;
-
-            string AaAaaAaA = aAaAaA(aAaaaA, AaAaaA);
-
-            if (AaAaaAaA == Encoding.UTF8.GetString(Convert.FromBase64String(AaAaAaAa)))
-            {
-                MessageBox.Show("A");
-                aaaaAaaAAA = true;
-            }
-            else
-            {
-                MessageBox.Show("a");
-            }
-
-            static string aAaAaA(string aAaaaA, string AaAaaA)
-            {
-                var AaAaaaA = new StringBuilder();
-                for (int aAaaA = 0; aAaaA < aAaaaA.Length; aAaaA++)
-                {
-                    AaAaaaA.Append((char)(aAaaaA[aAaaA] ^ AaAaaA[aAaaA % AaAaaA.Length]));
-                }
-                return AaAaaaA.ToString();
-            }
-
-            if (aaaaAaaAAA)
-            {
-                
-            }
-        }
-
-        
-
-
     }
 }
 

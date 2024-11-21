@@ -1,0 +1,186 @@
+﻿<Page x:Class="Spider_Solitaire.Menu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Spider_Solitaire"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1150"
+      Loaded="MenuLoaded"
+      Title="Menu" MinWidth="1000" MinHeight="600">
+
+    <Grid Background="#C8E6C9">
+        <!-- Soft pastel green background -->
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="350,0,350,0">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Margin="50,-50,0,0">
+
+                <Button Content="Play with 1 suit" 
+                    FontSize="25"
+                    Name="OneSuit"
+                    Margin="0,10,0,10"
+                    Click="OneSuiteNewGameClick"
+                    FontWeight="Medium">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#66BB6A"/>
+                            <!-- Lighter green -->
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <!-- White text -->
+                            <Setter Property="FontWeight" Value="Medium"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#388E3C"/>
+                                    <!-- Darker green on hover -->
+                                    <Setter Property="Foreground" Value="#F1F8E9"/>
+                                    <!-- Lighter text on hover -->
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="330" Height="50"
+                                    CornerRadius="25"
+                                    BorderBrush="#A5D6A7"
+                                    BorderThickness="3"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Content="Play with 2 suits" 
+                    FontSize="25"
+                    Name="TwoSuit"
+                    Margin="0,10,0,10"
+                    Click="TwoSuiteNewGameClick"
+                    FontWeight="Medium">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#66BB6A"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="FontWeight" Value="Medium"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#388E3C"/>
+                                    <Setter Property="Foreground" Value="#F1F8E9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="330" Height="50"
+                                    CornerRadius="25"
+                                    BorderBrush="#A5D6A7"
+                                    BorderThickness="3"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Content="Play with 4 suits" 
+                    FontSize="25"
+                    Name="FourSuit"
+                    Margin="0,10,0,10"
+                    Click="FourSuiteNewGameClick"
+                    FontWeight="Medium">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#66BB6A"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="FontWeight" Value="Medium"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#388E3C"/>
+                                    <Setter Property="Foreground" Value="#F1F8E9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="330" Height="50"
+                                    CornerRadius="25"
+                                    BorderBrush="#A5D6A7"
+                                    BorderThickness="3"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Content="Game Rules" 
+                    FontSize="25"
+                    Name="ViewRules"
+                    Margin="0,10,0,10"
+                    Click="ViewRulesClick"
+                    FontWeight="Medium">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#66BB6A"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                            <Setter Property="FontWeight" Value="Medium"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#388E3C"/>
+                                    <Setter Property="Foreground" Value="#F1F8E9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="330" Height="50"
+                                    CornerRadius="25"
+                                    BorderBrush="#A5D6A7"
+                                    BorderThickness="3"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="1"
+                          HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,50,100,50"
+                          MaxHeight="800"
+                          MaxWidth="600"
+                          Foreground="White"
+                          FontSize="18"
+                          VerticalScrollBarVisibility="Hidden"
+                          VerticalContentAlignment="Top"
+                          Name="InformationScrollViewer">
+                <StackPanel Name="SPInformation">
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

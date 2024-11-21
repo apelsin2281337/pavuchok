@@ -1,0 +1,110 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Spider_Solitaire</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <StartupObject></StartupObject>
+    <FileVersion>0.4.1.2</FileVersion>
+    <AssemblyVersion>0.4.1.2</AssemblyVersion>
+    <Authors>apelsin</Authors>
+    <Version>1.0</Version>
+    <Copyright>Copyright (C) 2024 Project - All Rights Reserve</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\10a.png" />
+    <Resource Include="assets\10b.png" />
+    <Resource Include="assets\10c.png" />
+    <Resource Include="assets\10d.png" />
+    <Resource Include="assets\11a.png" />
+    <Resource Include="assets\11b.png" />
+    <Resource Include="assets\11c.png" />
+    <Resource Include="assets\11d.png" />
+    <Resource Include="assets\12a.png" />
+    <Resource Include="assets\12b.png" />
+    <Resource Include="assets\12c.png" />
+    <Resource Include="assets\12d.png" />
+    <Resource Include="assets\13a.png" />
+    <Resource Include="assets\13b.png" />
+    <Resource Include="assets\13c.png" />
+    <Resource Include="assets\13d.png" />
+    <Resource Include="assets\1a.png" />
+    <Resource Include="assets\1b.png" />
+    <Resource Include="assets\1c.png" />
+    <Resource Include="assets\1d.png" />
+    <Resource Include="assets\2a.png" />
+    <Resource Include="assets\2b.png" />
+    <Resource Include="assets\2c.png" />
+    <Resource Include="assets\2d.png" />
+    <Resource Include="assets\3a.png" />
+    <Resource Include="assets\3b.png" />
+    <Resource Include="assets\3c.png" />
+    <Resource Include="assets\3d.png" />
+    <Resource Include="assets\4a.png" />
+    <Resource Include="assets\4b.png" />
+    <Resource Include="assets\4c.png" />
+    <Resource Include="assets\4d.png" />
+    <Resource Include="assets\5a.png" />
+    <Resource Include="assets\5b.png" />
+    <Resource Include="assets\5c.png" />
+    <Resource Include="assets\5d.png" />
+    <Resource Include="assets\6a.png" />
+    <Resource Include="assets\6b.png" />
+    <Resource Include="assets\6c.png" />
+    <Resource Include="assets\6d.png" />
+    <Resource Include="assets\7a.png" />
+    <Resource Include="assets\7b.png" />
+    <Resource Include="assets\7c.png" />
+    <Resource Include="assets\7d.png" />
+    <Resource Include="assets\8a.png" />
+    <Resource Include="assets\8b.png" />
+    <Resource Include="assets\8c.png" />
+    <Resource Include="assets\8d.png" />
+    <Resource Include="assets\9a.png" />
+    <Resource Include="assets\9b.png" />
+    <Resource Include="assets\9c.png" />
+    <Resource Include="assets\9d.png" />
+	<Resource Include="assets\home_icon_pressed.png" />
+	<Resource Include="assets\home_icon_unpressed.png" />
+    <Resource Include="assets\uncovered.png" />
+	<Resource Include="assets\sample.mp3"/>
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

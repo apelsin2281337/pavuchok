@@ -1,0 +1,34 @@
+﻿<Window x:Class="Spider_Solitaire.SpiderRulesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Spider Solitaire Rules"
+        Height="800" Width="700"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Grid Margin="10">
+        <StackPanel>
+            <!-- Language Selection Dropdown -->
+            <ComboBox x:Name="LanguageComboBox" Width="150" Height="20" Margin="0,0,0,10"
+                      SelectionChanged="LanguageComboBox_SelectionChanged">
+                <ComboBoxItem Content="English" />
+                <ComboBoxItem Content="Russian" />
+                <ComboBoxItem Content="Русский" />
+            </ComboBox>
+
+            <!-- Title -->
+            <TextBlock x:Name="RulesTitle" Text="Spider Solitaire Rules" 
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,10,0,20"/>
+
+            <!-- Rules Content -->
+            <TextBlock x:Name="RulesTextBlock" FontSize="14" TextWrapping="Wrap" Margin="10,0,10,0"/>
+            <Button Content="Close" Width="60" Height="20"
+                    Click="CloseButton_Click"/>
+
+            <!-- Close Button -->
+        </StackPanel>
+    </Grid>
+</Window>

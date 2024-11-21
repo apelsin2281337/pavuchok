@@ -1,0 +1,79 @@
+﻿<Window x:Class="Spider_Solitaire.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spider_Solitaire"
+        mc:Ignorable="d"
+        Title="Settings" Height="430" Width="350"
+        ResizeMode="NoResize"
+        Background="White"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center"
+                   Height="50" Width="340"
+                   Margin="0,35,0,0" Background="WhiteSmoke"/>
+
+
+        <TextBlock Text="Visuals" FontSize="20" FontWeight="Medium" 
+                   VerticalAlignment="Top" HorizontalAlignment="Left" 
+                   Margin="10,10,0,0"
+                   Name="VisualsText"/>
+        <TextBlock Text="Card size:" FontSize="15" 
+                   VerticalAlignment="Top" HorizontalAlignment="Left" 
+                   Margin="10,35,0,0"
+                   Name="CardSizeDesc"/>
+        <TextBox Text="100" FontSize="15" Name="CardSizeText" 
+                   VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="35" TextAlignment="Center"
+                   Margin="0,35,75,0"/>
+        <TextBlock Text="Card spacing:" FontSize="15"
+                   VerticalAlignment="Top" HorizontalAlignment="Left"
+                   Margin="10,60,0,0"
+                   Name="CardSpacingDesc"/>
+        <TextBox Text="20" FontSize="15" Name="CardSpacingText"
+                   VerticalAlignment="Top" HorizontalAlignment="Right"
+                   Width="30" Height="25" TextAlignment="Center"
+                   Margin="0,60,75,0"/>
+        <Button Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Margin="0,35,10,0" Name="CardSizeUp" Click="CardSizeUpClick"
+                Content="↑"/>
+        <Button Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Margin="0,35,40,0" Name="CardSizeDown" Click="CardSizeDownClick"
+                Content="↓"/>
+        <Button Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Margin="0,60,10,0" Name="CardSpacingUp" Click="CardSpacingUpClick"
+                Content="↑"/>
+        <Button Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Margin="0,60,40,0" Name="CardSpacingDown" Click="CardSpacingDownClick"
+                Content="↓"/>
+
+        <Button Width="140" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
+        Margin="0,110,199,0" Name="DelaultSettButton" Click="DefaultSettButtonClick"
+        Content="Revert to delault settings"/>
+
+        <TextBlock Text="Restart on language change" FontSize="15"
+                   VerticalAlignment="Top" HorizontalAlignment="Left"
+                   Margin="10,215,0,0"
+                   Name="RestartOnLanguageChangeDesc"
+                   Visibility="Hidden"/>
+        <CheckBox VerticalAlignment="Top" HorizontalAlignment="Right"
+                  Margin="0,220,30,0" Name="RestartOnLanguageChange"
+                  IsChecked="True"
+                  Visibility="Hidden"/>
+
+        <Border VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                Width="340" Height="40"
+                BorderBrush="Gray" BorderThickness="1"
+                Margin="0,0,0,2"/>
+        <Button Width="165" Height="30" Content="Apply" FontSize="15"
+                VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                Margin="6,0,0,7" Name="ApplyButton" IsDefault="True"
+                Click="ApplyButtonClick"/>
+        <Button Width="165" Height="30" Content="Cancel" FontSize="15"
+                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Margin="0,0,6,7" Name="CancelButton" IsCancel="True"
+                Click="CancelButtonClick"/>
+        <PasswordBox Name ="adminpwbox" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" Width="120" Opacity="0"/>
+        <Button Name="adminpwbutton" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top" Opacity="0.1" Click="AAaAaA"/>
+    </Grid>
+</Window>

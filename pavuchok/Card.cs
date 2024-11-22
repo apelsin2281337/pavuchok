@@ -57,25 +57,32 @@
 
         }
 
-        /*public async Task InvalidMove(int y, int cardOffset)
+        public async Task InvalidMove()
         {
-            for (int i = 0; i <= 20; i += 2)
-            {
-                image.Margin = new Thickness(i, y * cardOffset + 5 - i, 0, 0);
-                await Task.Delay(10);
-            }
-            for (int i = 20; i >= -20; i -= 2)
-            {
-                image.Margin = new Thickness(i, y * cardOffset + 5 - i, 0, 0);
-                await Task.Delay(10);
-            }
-            for (int i = -20; i != 0; i += 2)
-            {
-                image.Margin = new Thickness(i, y * cardOffset + 5 - i, 0, 0);
-                await Task.Delay(10);
-            }
-        }*/
+            double currentTopMargin = image.Margin.Top; // Используем текущую вертикальную позицию
+            int maxSideOffset = 10; // Максимальное горизонтальное смещение
 
+            // Движение вправо
+            for (int i = 0; i <= maxSideOffset; i += 1)
+            {
+                image.Margin = new Thickness(i, currentTopMargin, 0, 0);
+                await Task.Delay(10);
+            }
+
+            // Движение влево
+            for (int i = maxSideOffset; i >= -maxSideOffset; i -= 1)
+            {
+                image.Margin = new Thickness(i, currentTopMargin, 0, 0);
+                await Task.Delay(10);
+            }
+
+            // Возврат на исходное положение
+            for (int i = -maxSideOffset; i <= 0; i += 1)
+            {
+                image.Margin = new Thickness(i, currentTopMargin, 0, 0);
+                await Task.Delay(10);
+            }
+        }
         public void GetColour()
         {
             image.Source = new BitmapImage(new Uri(@"assets/" + (Visible ? $"{Value}{Colour}" : "uncovered") + ".png", UriKind.Relative));

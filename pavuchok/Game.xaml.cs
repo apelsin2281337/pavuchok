@@ -96,17 +96,18 @@
 
 
         //Handles movement of cards from one column to another
-        private void ColumnClick(object sender, MouseButtonEventArgs e)
+        private async void ColumnClick(object sender, MouseButtonEventArgs e)
         {
             if (Selected == null || Selected.Count == 0) return;
 
             int column_index = ((Grid)sender).Name[3] - '0';
-            if (((deck.activeCards[column_index].Count == 0 || deck.activeCards[column_index].Last().Value - 1 == Selected[0].Value)
-                && column_index != Selected_x))
+
+            // Проверяем, допустим ли ход
+            if (((deck.activeCards[column_index].Count == 0 ||
+                  deck.activeCards[column_index].Last().Value - 1 == Selected[0].Value) &&
+                  column_index != Selected_x))
             {
-
-
-
+                // Логика для допустимого хода
                 string LastCommandArgsEntry = $"{Selected.First().image.Name[0] - 'a'} ";
                 deck.activeCards[column_index].AddRange(Selected);
                 foreach (var item in deck.activeCards[column_index])
@@ -134,6 +135,7 @@
                 {
                     Grid.SetColumn(item.image, column_index + 1);
                     item.image.Margin = new Thickness(0, (deck.activeCards[column_index].IndexOf(item) + 1) * CardOffset + 5, 0, 0);
+
                 }
                 moves++;
                 Moves.Text = "Moves: " + moves.ToString();
@@ -147,20 +149,27 @@
             }
             else
             {
+                // Неверный ход: возвращаем карты и запускаем InvalidMove
+                foreach (var card in Selected)
+                {
+                    await card.InvalidMove();
+                }
+
                 deck.activeCards[Selected_x].AddRange(Selected);
                 foreach (var item in deck.activeCards[Selected_x])
                 {
                     item.image.Margin = new Thickness(0, (deck.activeCards[Selected_x].IndexOf(item) + 1) * CardOffset + 5, 0, 0);
                 }
             }
+
             Selected.Clear();
             IsSuitAssembled();
             Refresh();
             SwichHitRegistration(true);
 
-
             if (DecksSolved == 8) Victory();
         }
+
 
         // Starts the background music
         private void StartBackgroundMusic()

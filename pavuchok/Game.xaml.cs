@@ -57,6 +57,8 @@
         {
             if (deck.activeCards == null || Selected.Count > 0) return;
 
+            PlaySound("125.mp3");
+
             int x = ((Image)sender).Name[0] - 97; // Get x from image name
             int y = ((Image)sender).Name[1] - 65; // Get y from image name
             char n = ((Image)sender).Name[2];
@@ -170,6 +172,48 @@
             if (DecksSolved == 8) Victory();
         }
 
+        private void PlaySound(string soundFileName)
+        {
+            try
+            {
+                MediaPlayer soundPlayer = new MediaPlayer();
+
+                // Получение потока встроенного ресурса
+                var resourceStream = Application.GetResourceStream(new Uri($"pack://application:,,,/assets/{soundFileName}"));
+                if (resourceStream == null)
+                {
+                    MessageBox.Show($"Sound resource {soundFileName} not found.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                // Сохраняем ресурс во временный файл
+                string tempFilePath = Path.Combine(Path.GetTempPath(), soundFileName);
+                using (var fileStream = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+                {
+                    resourceStream.Stream.CopyTo(fileStream);
+                }
+
+                // Открываем временный файл для воспроизведения
+                soundPlayer.Open(new Uri(tempFilePath, UriKind.Absolute));
+                soundPlayer.Volume = settings.soundEnabled ? 1 : 0; // Учитываем настройку звука
+                soundPlayer.Play();
+
+                // Удаляем временный файл после завершения воспроизведения
+                soundPlayer.MediaEnded += (s, e) =>
+                {
+                    soundPlayer.Close();
+                    if (File.Exists(tempFilePath))
+                    {
+                        File.Delete(tempFilePath);
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error playing sound: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
 
         // Starts the background music
         private void StartBackgroundMusic()
@@ -195,10 +239,20 @@
 
                 // Открываем временный файл для воспроизведения
                 backgroundMusic.Open(new Uri(tempFilePath, UriKind.Absolute));
+                if (settings.soundEnabled)
+                {
+                    backgroundMusic.Volume = 0.3;
+                }
+                else
+                {
+                    backgroundMusic.Volume = 0;
+                }
+
 
                 // Настраиваем зацикливание и воспроизведение
                 backgroundMusic.MediaOpened += (s, e) =>
                 {
+                    
                     backgroundMusic.Play();
                     backgroundMusic.MediaEnded += (sender, args) =>
                     {
@@ -269,6 +323,7 @@
         //Handles dealing of new row of cards
         public async void NewCardsClick(object sender, MouseButtonEventArgs e)
         {
+            PlaySound("124.mp3");
             for (int i = 0; i < 10; i++)
             {
                 if (deck.activeCards[i].Count > 0) continue;
@@ -386,6 +441,7 @@
         {
             public float CardSizeFactor { get; set; }
             public int CardSpacing { get; set; }
+            public bool soundEnabled { get; set; }
 
 
             public Settings()
@@ -399,7 +455,7 @@
                 try
                 {
                     string[] lines = File.ReadAllLines(@"settings.txt");
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 3; i++)
                     {
                         string[] data = lines[i].Split(' ');
                         if (data.Length != 2) throw new FileFormatException();
@@ -410,6 +466,9 @@
                                 break;
                             case 1:
                                 CardSpacing = Convert.ToInt32(data[1]);
+                                break;
+                            case 2:
+                                soundEnabled = bool.Parse(data[1]);
                                 break;
                             default:
                                 break;

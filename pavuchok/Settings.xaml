@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center"
-                   Height="50" Width="340"
+                   Height="80" Width="340"
                    Margin="0,35,0,0" Background="WhiteSmoke"/>
 
 
@@ -46,9 +46,12 @@
         <Button Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
                 Margin="0,60,40,0" Name="CardSpacingDown" Click="CardSpacingDownClick"
                 Content="↓"/>
+        <CheckBox Name="SoundCheckBox" Content="Enable Sound"  
+                  VerticalAlignment="Top" HorizontalAlignment="Left" 
+                  Margin="7,87,0,0" Unchecked="checkBoxUnchecked" Checked="checkBoxChecked" />
 
         <Button Width="140" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
-        Margin="0,110,199,0" Name="DelaultSettButton" Click="DefaultSettButtonClick"
+        Margin="0,153,200,0" Name="DelaultSettButton" Click="DefaultSettButtonClick"
         Content="Revert to delault settings"/>
 
         <TextBlock Text="Restart on language change" FontSize="15"

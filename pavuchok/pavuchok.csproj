@@ -72,6 +72,9 @@
 	<Resource Include="assets\home_icon_unpressed.png" />
     <Resource Include="assets\uncovered.png" />
 	<Resource Include="assets\sample.mp3"/>
+	<Resource Include="assets\124.mp3"/>
+	<Resource Include="assets\125.mp3"/>
+	  
   </ItemGroup>
 
 

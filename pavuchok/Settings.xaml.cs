@@ -1,11 +1,15 @@
-﻿namespace Spider_Solitaire
+﻿using System.Windows.Controls;
+
+namespace Spider_Solitaire
 {
     /// <summary>
     /// Interaction logic for Settings.xaml
     /// </summary>
     public partial class Settings : Window
     {
-        public bool aaaaAaaAAA = false;
+        // Bind soundEnabled to the CheckBox
+        public bool soundEnabled = true;
+        
 
         public Settings()
         {
@@ -18,9 +22,8 @@
             if (!File.Exists(@"settings.txt")) WriteSettingsFile();
             try
             {
-
                 string[] lines = File.ReadAllLines(@"settings.txt");
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     string[] data = lines[i].Split(' ');
                     if (data.Length != 2) throw new FileFormatException();
@@ -31,6 +34,9 @@
                             break;
                         case 1:
                             CardSpacingText.Text = data[1];
+                            break;
+                        case 2:
+                            SoundCheckBox.IsChecked = bool.Parse(data[1]); // Ensure the correct index is used
                             break;
                         default:
                             break;
@@ -48,20 +54,20 @@
             CardSizeDesc.Text = "Card size";
             CardSpacingDesc.Text = "Card spacing";
             Title = "Settings";
-
             RestartOnLanguageChangeDesc.Text = "NO";
         }
 
         public static bool WriteSettingsFile()
         {
-            if (File.Exists(@"settings.txt")) return false; ;
+            if (File.Exists(@"settings.txt")) return false;
             try
             {
                 string[] data =
-                [
+                {
                     "Card_size= 100",
                     "Card_spacing= 20",
-                ];
+                    "soundEnabled= true" // Default value
+                };
                 File.WriteAllLines(@"settings.txt", data);
             }
             catch (Exception e)
@@ -78,11 +84,11 @@
             try
             {
                 string[] data =
-                [
+                {
                     $"Card_size= {cardSize}",
                     $"Card_spacing= {cardSpacing}",
-
-                ];
+                    $"soundEnabled= {soundEnabled.ToString().ToLower()}" // Write the value as true/false
+                };
                 File.WriteAllLines(@"settings.txt", data);
             }
             catch (Exception e)
@@ -102,6 +108,16 @@
             if (size >= 200) return;
             size++;
             CardSizeText.Text = size.ToString();
+        }
+
+        private void checkBoxChecked(object sender, RoutedEventArgs e)
+        {
+            soundEnabled = true;
+        }
+
+        private void checkBoxUnchecked(object sender, RoutedEventArgs e)
+        {
+            soundEnabled = false;
         }
 
         private void CardSizeDownClick(object sender, RoutedEventArgs e)
@@ -133,6 +149,7 @@
         {
             CardSizeText.Text = "100";
             CardSpacingText.Text = "20";
+            soundEnabled = true;
         }
 
         private void CancelButtonClick(object sender, RoutedEventArgs e)

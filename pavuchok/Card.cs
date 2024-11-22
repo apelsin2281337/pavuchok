@@ -66,22 +66,23 @@
             for (int i = 0; i <= maxSideOffset; i += 1)
             {
                 image.Margin = new Thickness(i, currentTopMargin, 0, 0);
-                await Task.Delay(10);
+                
             }
-
+            await Task.Delay(10);
             // Движение влево
             for (int i = maxSideOffset; i >= -maxSideOffset; i -= 1)
             {
                 image.Margin = new Thickness(i, currentTopMargin, 0, 0);
-                await Task.Delay(10);
+                
             }
-
+            await Task.Delay(10);
             // Возврат на исходное положение
             for (int i = -maxSideOffset; i <= 0; i += 1)
             {
                 image.Margin = new Thickness(i, currentTopMargin, 0, 0);
-                await Task.Delay(10);
+                
             }
+            await Task.Delay(10);
         }
         public void GetColour()
         {

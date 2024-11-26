@@ -15,11 +15,11 @@
         }
 
         //randomly generates the card deck from with the cards are given out in order
-        public void GenerateCards(in int numberOfCoulours)
+        public void GenerateCards(in int numberOfColors)
         {
             bool picked;
-            int[] coloursPool = new int[numberOfCoulours * 13];
-            for (int i = 0; i < numberOfCoulours * 13; i++) coloursPool[i] = 8 / numberOfCoulours;
+            int[] coloursPool = new int[numberOfColors * 13];
+            for (int i = 0; i < numberOfColors * 13; i++) coloursPool[i] = 8 / numberOfColors;
 
             for (int i = 0; i < 8 * 13; i++)
             {
@@ -39,7 +39,7 @@
                     }
                 }
             }
-            if (!IsValidDeck()) GenerateCards(numberOfCoulours);
+            if (!IsValidDeck()) GenerateCards(numberOfColors);
         }
 
         //method determines whether the generated deck is valid according to a generation ruleset

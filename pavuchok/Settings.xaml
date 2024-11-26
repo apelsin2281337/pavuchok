@@ -25,27 +25,15 @@
                    Name="CardSizeDesc"/>
         <TextBox Text="100" FontSize="15" Name="CardSizeText" 
                    VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="35" TextAlignment="Center"
-                   Margin="0,35,75,0"/>
+                   Margin="0,40,20,0"/>
         <TextBlock Text="Card spacing:" FontSize="15"
                    VerticalAlignment="Top" HorizontalAlignment="Left"
                    Margin="10,60,0,0"
                    Name="CardSpacingDesc"/>
         <TextBox Text="20" FontSize="15" Name="CardSpacingText"
                    VerticalAlignment="Top" HorizontalAlignment="Right"
-                   Width="30" Height="25" TextAlignment="Center"
-                   Margin="0,60,75,0"/>
-        <Button Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
-                Margin="0,35,10,0" Name="CardSizeUp" Click="CardSizeUpClick"
-                Content="↑"/>
-        <Button Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
-                Margin="0,35,40,0" Name="CardSizeDown" Click="CardSizeDownClick"
-                Content="↓"/>
-        <Button Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
-                Margin="0,60,10,0" Name="CardSpacingUp" Click="CardSpacingUpClick"
-                Content="↑"/>
-        <Button Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right"
-                Margin="0,60,40,0" Name="CardSpacingDown" Click="CardSpacingDownClick"
-                Content="↓"/>
+                   Width="35" Height="25" TextAlignment="Center"
+                   Margin="0,65,20,0"/>
         <CheckBox Name="SoundCheckBox" Content="Enable Sound"  
                   VerticalAlignment="Top" HorizontalAlignment="Left" 
                   Margin="7,87,0,0" Unchecked="checkBoxUnchecked" Checked="checkBoxChecked" />

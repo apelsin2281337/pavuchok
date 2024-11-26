@@ -29,7 +29,6 @@
             _menu = menu;
             settings = new();
             CardOffset = settings.CardSpacing;
-            LayOutCardOutlines();
             deck.GenerateCards(numberOfColours);
             _ = deck.LayOutStartingCardsRecursive(CardOffset, SolitaireGrid, CardSelect, settings.CardSizeFactor);
             _timer = new DispatcherTimer
@@ -87,7 +86,7 @@
                 // Select new cards
                 for (int i = y; i < deck.activeCards[x].Count; i++)
                 {
-                    await deck.activeCards[x][i].SelectedMove(i + 1, CardOffset); // Move selected cards up
+                    deck.activeCards[x][i].SelectedMove(i + 1, CardOffset); // Move selected cards up
                     Selected.Add(deck.activeCards[x][i]);
                 }
                 deck.activeCards[x].RemoveRange(y, deck.activeCards[x].Count - y);
@@ -403,39 +402,6 @@
                 File.Delete(tempFilePath);
             }
         }
-
-        //Lays out the dark green outlines
-        private void LayOutCardOutlines()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                Image image = new()
-                {
-                    Width = Convert.ToInt32(89.0f * settings.CardSizeFactor),
-                    Height = Convert.ToInt32(120.0f * settings.CardSizeFactor),
-                    Source = new BitmapImage(new Uri(@"assets/card_outline.png", UriKind.Relative)),
-                    VerticalAlignment = VerticalAlignment.Top,
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    Stretch = Stretch.UniformToFill,
-                    IsHitTestVisible = false,
-                    Margin = new Thickness(0, CardOffset + 5, 0, 0)
-                };
-                SolitaireGrid.Children.Add(image);
-                Grid.SetColumn(image, i + 1);
-            }
-        }
-
-        //handles the button changing background
-        private async void SPButtons_MouseEnter(object sender, MouseEventArgs e)
-        {
-            while (SPButtons.IsMouseOver == true)
-            {
-                if (Exit.IsMouseOver == true) InformationBox.Text = "Quit to main menu";
-                await Task.Delay(50);
-            }
-            InformationBox.Text = " ";
-        }
-
 
         private class Settings
         {

@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace Spider_Solitaire
+﻿namespace Spider_Solitaire
 {
     /// <summary>
     /// Interaction logic for Settings.xaml
@@ -100,16 +98,6 @@ namespace Spider_Solitaire
             return true;
         }
 
-
-
-        private void CardSizeUpClick(object sender, RoutedEventArgs e)
-        {
-            int size = Convert.ToInt32(CardSizeText.Text);
-            if (size >= 200) return;
-            size++;
-            CardSizeText.Text = size.ToString();
-        }
-
         private void checkBoxChecked(object sender, RoutedEventArgs e)
         {
             soundEnabled = true;
@@ -119,31 +107,6 @@ namespace Spider_Solitaire
         {
             soundEnabled = false;
         }
-
-        private void CardSizeDownClick(object sender, RoutedEventArgs e)
-        {
-            int size = Convert.ToInt32(CardSizeText.Text);
-            if (size <= 50) return;
-            size--;
-            CardSizeText.Text = size.ToString();
-        }
-
-        private void CardSpacingUpClick(object sender, RoutedEventArgs e)
-        {
-            int size = Convert.ToInt32(CardSpacingText.Text);
-            if (size >= 60) return;
-            size++;
-            CardSpacingText.Text = size.ToString();
-        }
-        private void CardSpacingDownClick(object sender, RoutedEventArgs e)
-        {
-            int size = Convert.ToInt32(CardSpacingText.Text);
-            if (size <= 10) return;
-            size--;
-            CardSpacingText.Text = size.ToString();
-        }
-
-
 
         private void DefaultSettButtonClick(object sender, RoutedEventArgs e)
         {

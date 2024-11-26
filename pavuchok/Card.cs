@@ -51,7 +51,7 @@
             for (int i = 0; i < 15; i += 1)
             {
                 image.Margin = new Thickness(0, y * cardOffset + 5 - i, 0, 0);
-                await Task.Delay(3);
+                await Task.Delay(1);
             }
 
 
@@ -82,7 +82,7 @@
                 image.Margin = new Thickness(i, currentTopMargin, 0, 0);
                 
             }
-            await Task.Delay(10);
+            await Task.Delay(1);
         }
         public void GetColour()
         {

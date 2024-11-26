@@ -1,5 +1,4 @@
-﻿using System.Text;
-
+﻿
 namespace Spider_Solitaire
 {
     public partial class SpiderRulesWindow : Window
@@ -8,8 +7,7 @@ namespace Spider_Solitaire
         public Dictionary<string, string[]> rulesContent = new()
         {
             { "English", eng },
-            { "Russian", ru },
-            { "Русский", fun }
+            { "Russian", ru }
         };
         private static readonly string[] eng =
                 [
@@ -33,17 +31,6 @@ namespace Spider_Solitaire
                     "Победа в игре:", "Вы выигрываете, убирая все карты с доски, создавая полные последовательности.",
                     "Режимы сложности:", "Доступны режимы 1 масть, 2 масти и 4 масти для разных уровней сложности."
                 ];
-        private static readonly string[] fun =
-                [
-                    "Тыкай по картам пока не соберешь фулл комплект одной масти в обратной последовательности",
-                    "Карты надо собирать в обратной последовательности",
-                    "Он тогда кароче уберется с экрана и типо это круто ты собрал чета",
-                    "И ты так делаешь до конца игры. Конец игры это когда ты забрал все комплекты",
-                    "Если ты зверь и играешь с несколькими мастями, то собирать их",
-                    "Можно какими угодно мастями, главное чтоб последовательность норм была",
-                    "Но Перемещать несколько карт можно ток когда они одной масти",
-                    "Ты можешь играть с одной мастью, двумя или четырьмя. И все кароч можно так круто играть!"
-                ];
 
         public SpiderRulesWindow()
         {
@@ -55,7 +42,7 @@ namespace Spider_Solitaire
         private void UpdateRulesText(string language)
         {
             RulesTextBlock.Inlines.Clear();
-            if (rulesContent.TryGetValue(language, out string[]? rules) && language != "Русский")
+            if (rulesContent.TryGetValue(language, out string[]? rules))
             {
                 for (int i = 0; i < rules.Length; i++)
                 {
@@ -64,15 +51,6 @@ namespace Spider_Solitaire
                     else
                         RulesTextBlock.Inlines.Add(new Run(rules[i]));
                     RulesTextBlock.Inlines.Add(new LineBreak());
-                    RulesTextBlock.Inlines.Add(new LineBreak());
-                }
-            }
-            else
-            {
-                for (int i = 0; i < rules?.Length; i++)
-                {
-
-                    RulesTextBlock.Inlines.Add(new Run(rules[i]));
                     RulesTextBlock.Inlines.Add(new LineBreak());
                 }
             }

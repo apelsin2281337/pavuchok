@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace pavuchok
+﻿namespace pavuchok
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
-
-namespace Spider_Solitaire
+﻿namespace Spider_Solitaire
 {
     /// <summary>
     /// Interaction logic for Menu.xaml
@@ -54,14 +49,6 @@ namespace Spider_Solitaire
             if (game != null) DestroyGameReference();
             game = new Game(numberOfSuits, this);
             NavigationService.Navigate(game);
-
-        }
-
-        private void MenuLoaded(object sender, RoutedEventArgs e)
-        {
-            OneSuit.Content = "Play with 1 suit";
-            TwoSuit.Content = "Play with 2 suits";
-            FourSuit.Content = "Play with 4 suits";
 
         }
     }
